@@ -1,17 +1,38 @@
 <template>
   <div>
-    <todos></todos>
+    <todos v-model="todos"></todos>
   </div>
 </template>
 
 <script>
-import Todos from './components/Todos.vue'
+import Todos from './components/Todos'
 
 export default {
-  name: 'App',
+  data () {
+    return {
+      slides: 5,
+      todos: [{
+        name: 'Demo',
+        completed: true
+      }]
+    }
+  },
+  methods: {
+    addTodo () {
+      this.todos.push({
+        name: 'Jean',
+        completed: false
+      })
+    },
+    addSlide () {
+      this.slides++
+    },
+    removeSlide () {
+      this.slides--
+    }
+  },
   components: {
     Todos
   }
 }
 </script>
-
